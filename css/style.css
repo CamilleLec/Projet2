@@ -1,29 +1,53 @@
 /****** General ***********/
+
+
 * {
     font-family: 'Raleway', sans-serif;
 }
 
 a {
+    
     color: inherit;
+    /* pour afficher le texte en noir */
     text-decoration: none;
+    /* supprime le surlignement */
 }
 
+
 li {
+    border: 1px solid red;
     list-style: none;
     display: inline;
+    margin-right: 50px;
 }
+
+li:nth-child(1){
+/* seléctionne uniquement le premier élément de ma liste */
+    padding-top: px;
+    border-top: 2px solid #0065FC;
+    color :#0065FC;
+}
+
 
 nav {
     border: 1px solid red;
+    padding-left: 50px;
     display: flex;
-    justify-content: flex-start; 
-    justify-content: space-between;    
-    flex-wrap: wrap;     
+    justify-content: space-between;   
+    align-items: center;
 }
 
 
-#logo {object-fit: contain;}
+#logo {
+    border: 1px solid red;
+    width: 61.09px;
+    height: 19px;
+}
 
+h1{
+    font-weight: 700;
+    font-size: 22px;
+}
 
 :root {
     --main-color: #0065FC;
