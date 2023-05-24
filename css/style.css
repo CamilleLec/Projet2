@@ -43,32 +43,37 @@ body {
 .card-title {
     font-size: 16px;
 }
+.custom-elements {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
 
 a {
     color: inherit;
-    /* pour afficher le texte en noir */
     text-decoration: none;
-    /* supprime le surlignement */
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* flex-direction: column; */
+}
+
+li {
+    list-style: none;
 }
 
 /* LINKS NAV */
 nav li {
-    list-style: none;
     display: inline;
     margin-right: 50px;
-    color: #0065fc;
     padding: 14px 0;
 }
 
-li:hover {
-    border-top: 2px solid #0065fc;
+nav li:hover {
+    border-top: 2px solid var(--main-color);
+    color: var(--main-color);
 }
 
 nav {
@@ -108,13 +113,13 @@ h1 {
 
 /* TEXTE INPUT */
 .search-bar input {
-    padding-right: 4rem;
+    font-weight: bold;
+    padding: 0 4rem 0 1rem;
     border: 1px solid #f2f2f2;
 }
 
 .search-bar ::placeholder {
     font-size: larger;
-    padding-left: 0.5rem;
 }
 
 .search-bar button {
@@ -134,25 +139,25 @@ h1 {
 }
 
 /* FILTERS */
-.custom-elements {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 21px;
-}
 
 .filters {
     padding-top: 3rem;
     display: flex;
+    align-items: center;
 }
 
-.filters li {
-    display: inline;
+.filters button {
+    background-color: white;
+    border-radius: 25px 25px 25px 25px;
     padding: 14px 20px 14px 20px;
     font-weight: 700;
     font-size: 17px;
     line-height: 20px;
     border: 2px solid #f2f2f2;
-    border-radius: 25px 25px 25px 25px;
+}
+
+.filters button:hover {
+    background-color: var(--filter-bg-color);
 }
 
 .filters .fa-solid {
@@ -184,7 +189,7 @@ h1 {
 .hebergements-et-populaires section {
     background-color: var(--main-bg-color);
     border-radius: 20px;
-    padding: 30px;
+    padding: 30px 30px 15px 30px;
     box-sizing: border-box;
 }
 
@@ -196,7 +201,7 @@ h1 {
     font-weight: 700;
 }
 
-/****** Hebergements ***********/
+/****** Hebergements a Marseille ***********/
 
 .hebergements {
     width: 65%;
@@ -207,19 +212,34 @@ h1 {
 }
 
 .hebergements-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 33px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 5%;
 }
 
 .hebergements-cards .card {
     display: flex;
     flex-direction: column;
+    width: 28%;
+    cursor: pointer;
 }
 
 .hebergements-cards img {
-    height: 136px;
+    width: 100%;
+    height: 124px;
     border-radius: 20px 20px 0px 0px;
+}
+
+.hebergements .custom-elements {
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+.hebergements-cards .card-subtitle {
+    margin: 5px 0 0 0;
+}
+
+.hebergements-cards .card-title {
+    margin: 5px 0 0 0;
 }
 
 /****** Populaires ***********/
@@ -234,19 +254,27 @@ h1 {
     align-items: center;
 }
 
-.populaires-cards .card {
+.populaires-cards {
     display: flex;
+    flex-direction: column;
+}
+
+.populaires-cards .card a {
+    display: flex;
+}
+
+.populaires-cards .card {
     margin-top: 33px;
+    cursor: pointer;
 }
 
 .populaires-cards img {
     width: 33%;
-    height: 136px;
-    border-top-left-radius: 20px 0px 0px 20px;
+    height: 124px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .populaires-cards .card-content {
-    width: 67%;
     padding-left: 15px;
     display: flex;
     flex-direction: column;
@@ -274,22 +302,25 @@ h1 {
 
 .Activites-Marseille .card-title {
     padding-left: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
 }
 
 .Activites-Marseille .Activites-card {
     margin-top: 35px;
+    gap: 25px;
     display: flex;
-    justify-content: space-around;
+}
+.Activites-card a {
+    width: 25%;
+}
+.Activites-card a .card {
+    padding: 0%;
 }
 .Activites-Marseille img {
-    object-fit: cover;
-    width: 297.5px;
-    height: 380px;
+    width: 100%;
+    height: 28vw;
     border-radius: 20px 20px 0px 0px;
-}
-
-.Activites-card .card {
-    padding: 0%;
 }
 
 /************* FOOTER ***************/
@@ -309,12 +340,30 @@ h1 {
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
 /****** Media queries ***********/
+
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
+    .filters {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filters-li {
+        padding-left: 0px;
+    }
+
+    .filters .custom-elements {
+        margin-bottom: 0px;
+    }
+
     .hebergements-et-populaires {
         flex-direction: column;
     }
-
+    .hebergements-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px 4%;
+    }
     .hebergements {
         width: 100%;
     }
@@ -345,5 +394,22 @@ h1 {
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-    /* ... */
+    .main-container {
+        padding: 0;
+    }
+    nav li:hover {
+        border-bottom: 2px solid #0065fc;
+        border-top: hidden;
+    }
+    .nav-bar {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-bar nav {
+        padding-left: 0;
+    }
+
+    .nav-bar nav ul {
+        padding-left: 0;
+    }
 }
